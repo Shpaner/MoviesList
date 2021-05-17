@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_list_app/components/custom_button.dart';
-import 'package:movies_list_app/screens/login_screen.dart';
-import 'package:movies_list_app/screens/registration_screen.dart';
+import 'package:movies_list_app/screens/login/view/login_screen.dart';
+import 'package:movies_list_app/screens/registration/view/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  static const String id = 'WelcomeScreen';
+  static Page page() => MaterialPage<void>(child: WelcomeScreen());
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,14 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 CustomButton(
                   color: Colors.lightGreen,
-                  text: 'Log in',
-                  onPressed: () => Navigator.pushNamed(context, LoginScreen.id),
+                  content: Text('Log in'),
+                  onPressed: () => Navigator.push(context, LoginPage.route()),
                 ),
                 CustomButton(
                   color: Colors.green,
-                  text: 'Register',
+                  content: Text('Register'),
                   onPressed: () =>
-                      Navigator.pushNamed(context, RegistrationScreen.id),
+                      Navigator.push(context, RegistrationPage.route()),
                 ),
               ],
             ),
